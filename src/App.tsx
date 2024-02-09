@@ -1,6 +1,12 @@
 import ListItem from "./components/ListItem";
 import Button from "./components/button";
-import { useState } from "react";
+import { useState, useEffect, useDebugValue, useId } from "react";
+import SideEffects from "./components/SideEffects";
+import Parent from "./components/SideEffects";
+import CountOnInput from "./components/CountOnInput";
+import Context from "./components/Context";
+import ImportantList from "./components/ImportantList";
+import MyList from "./components/MyList";
 
 /* function ImportantList() {
   let animals: string[] = ["Lion", "Puma", "Horse", "Snake", "Elephant"];
@@ -40,20 +46,20 @@ function App() {
     </>
   );
 } */
-function App() {
+/* function App() {
   const [animal, setAnimal] = useState({
     name: "Maunz",
     species: "cat",
     age: 2,
-  });
+  }); */
 
-  /*   const handleIncreaseAge = () => {
+/*   const handleIncreaseAge = () => {
     //NEVER mutate a state like this!!! BAD practice
     animal.age = animal.age + 1; //BAD
     setAnimal(animal);
   }; */
 
-  const handleIncreaseAge = () => {
+/*   const handleIncreaseAge = () => {
     console.log("before setAnimal:", animal.age);
     setAnimal({ ...animal, age: animal.age + 1 });
     console.log("after setAnimal:", animal.age);
@@ -67,7 +73,7 @@ function App() {
       <button onClick={handleIncreaseAge}>Increase Age</button>
     </>
   );
-}
+} */
 
 /* function App() {
   const colors = ["red", "green", "yellow"];
@@ -85,5 +91,58 @@ function App() {
     </div>
   );
 }
- */
+*/
+
+/* function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  return (
+    <>
+      <label>
+        <input
+          type="checkbox"
+          checked={isDark}
+          onChange={(e) => setIsDark(e.target.checked)}
+        />
+        Darkmode
+      </label>
+      <div>
+        <MyList
+          todos={["hello", "world", "hi"]}
+          theme={isDark ? "dark" : "light"}
+        />
+      </div>
+    </>
+  );
+} */
+
+/* function useTitle() {
+  const [title, setTitle] = useState<string>("");
+  useDebugValue(`title is ${title}`);
+  useEffect(() => {
+    setTimeout(() => {
+      setTitle("testing useDebugvalue");
+    }, 2000);
+  }, [title]);
+  return title;
+}
+
+function App() {
+  const title = useTitle();
+  return (
+    <>
+      <h1>{title}</h1>
+    </>
+  );
+} */
+
+function App() {
+  const id = useId();
+  return (
+    <label htmlFor={id}>
+      Name:
+      <input id={id} type="text" />
+    </label>
+  );
+}
 export default App;
