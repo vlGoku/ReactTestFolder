@@ -1,6 +1,8 @@
-import ListItem from "./components/ListItem";
-import Button from "./components/button";
+/* import ListItem from "./components/ListItem";
+import Button from "./components/button"; */
 import { useState } from "react";
+import InputControlled from "./components/Input";
+import InputForm from "./components/InputForm";
 
 /* function ImportantList() {
   let animals: string[] = ["Lion", "Puma", "Horse", "Snake", "Elephant"];
@@ -40,26 +42,26 @@ function App() {
     </>
   );
 } */
-function App() {
-  const [animal, setAnimal] = useState({
+/* function App() { */
+/*   const [animal, setAnimal] = useState({
     name: "Maunz",
     species: "cat",
     age: 2,
   });
-
-  /*   const handleIncreaseAge = () => {
+ */
+/*   const handleIncreaseAge = () => {
     //NEVER mutate a state like this!!! BAD practice
     animal.age = animal.age + 1; //BAD
     setAnimal(animal);
   }; */
 
-  const handleIncreaseAge = () => {
+/*   const handleIncreaseAge = () => {
     console.log("before setAnimal:", animal.age);
     setAnimal({ ...animal, age: animal.age + 1 });
     console.log("after setAnimal:", animal.age);
-  };
+  }; */
 
-  return (
+/*   return (
     <>
       <h1>{animal.name}</h1>
       <h2>{animal.species}</h2>
@@ -86,4 +88,12 @@ function App() {
   );
 }
  */
+function App() {
+  return (
+    <div>
+      <InputForm />
+    </div>
+  );
+}
+
 export default App;
