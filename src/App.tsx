@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-/* import ListItem from "./components/ListItem";
-import Button from "./components/button"; */
-import { useState } from "react";
-import InputControlled from "./components/Input";
-import InputForm from "./components/InputForm";
-=======
 import ListItem from "./components/ListItem";
-import Button from "./components/button";
 import { useState, useEffect, useDebugValue, useId } from "react";
 import SideEffects from "./components/SideEffects";
 import Parent from "./components/SideEffects";
@@ -14,7 +6,9 @@ import CountOnInput from "./components/CountOnInput";
 import Context from "./components/Context";
 import ImportantList from "./components/ImportantList";
 import MyList from "./components/MyList";
->>>>>>> ab4d0b29509b2104f9cb6dd6a878cfa145e11fb0
+import useScrolling from "./components/UseScrolling";
+import styled from "@emotion/styled";
+import DefaultButton from "./components/DefaultButton";
 
 /* function ImportantList() {
   let animals: string[] = ["Lion", "Puma", "Horse", "Snake", "Elephant"];
@@ -54,15 +48,6 @@ function App() {
     </>
   );
 } */
-<<<<<<< HEAD
-/* function App() { */
-/*   const [animal, setAnimal] = useState({
-    name: "Maunz",
-    species: "cat",
-    age: 2,
-  });
- */
-=======
 /* function App() {
   const [animal, setAnimal] = useState({
     name: "Maunz",
@@ -70,7 +55,6 @@ function App() {
     age: 2,
   }); */
 
->>>>>>> ab4d0b29509b2104f9cb6dd6a878cfa145e11fb0
 /*   const handleIncreaseAge = () => {
     //NEVER mutate a state like this!!! BAD practice
     animal.age = animal.age + 1; //BAD
@@ -109,17 +93,6 @@ function App() {
     </div>
   );
 }
-<<<<<<< HEAD
- */
-function App() {
-  return (
-    <div>
-      <InputForm />
-    </div>
-  );
-}
-
-=======
 */
 
 /* function App() {
@@ -165,7 +138,7 @@ function App() {
   );
 } */
 
-function App() {
+/* function App() {
   const id = useId();
   return (
     <label htmlFor={id}>
@@ -173,6 +146,75 @@ function App() {
       <input id={id} type="text" />
     </label>
   );
+}*/
+
+/* function App() {
+  const isScrolling = useScrolling();
+  return (
+    <div style={{ height: "1000px" }}>
+      <h1 style={{ position: "fixed" }}>{isScrolling.toString()}</h1>
+      {isScrolling && (
+        <p style={{ position: "fixed", top: "100px" }}>
+          hey i am scrolling down
+        </p>
+      )}
+    </div>
+  );
+} */
+
+/* const StyledDiv = styled("div")`
+  padding: 2rem;
+  background-color: ${(props) => props.color || "#62ED26"};
+`;
+
+const Button = styled("button")`
+  color: #000;
+  padding: 10px;
+  background-color: #f0e259;
+  border: 1px solid black;
+  border-radius: 5px;
+  &:hover {
+    color: #fff;
+    background-color: #f08e59;
+  }
+`;
+
+function App() {
+  return (
+    <StyledDiv>
+      <Button>Click me</Button>
+    </StyledDiv>
+  );
+} */
+
+interface IPops {
+  title?: string;
+  className: string;
 }
->>>>>>> ab4d0b29509b2104f9cb6dd6a878cfa145e11fb0
+
+const MyButton = ({ className }: IPops) => (
+  <DefaultButton className={className} title="My Button" />
+);
+
+const StyledButton = styled(MyButton)<IPops>`
+  color: red;
+  padding: 10px;
+`;
+
+const Section = styled.section`
+  padding: 2rem;
+  background-color: #62ed26;
+`;
+
+const Aside = Section.withComponent("aside");
+
+function App() {
+  return (
+    <main>
+      <Section>This is a styled Section</Section>
+      <Aside>This has the same style as Section</Aside>
+    </main>
+  );
+}
+
 export default App;

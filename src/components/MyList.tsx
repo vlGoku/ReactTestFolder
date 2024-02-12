@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import "./style.css";
 
 function expensiveFn(todos: string[]): string[] {
   const start = performance.now();
