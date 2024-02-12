@@ -1,8 +1,20 @@
+<<<<<<< HEAD
 /* import ListItem from "./components/ListItem";
 import Button from "./components/button"; */
 import { useState } from "react";
 import InputControlled from "./components/Input";
 import InputForm from "./components/InputForm";
+=======
+import ListItem from "./components/ListItem";
+import Button from "./components/button";
+import { useState, useEffect, useDebugValue, useId } from "react";
+import SideEffects from "./components/SideEffects";
+import Parent from "./components/SideEffects";
+import CountOnInput from "./components/CountOnInput";
+import Context from "./components/Context";
+import ImportantList from "./components/ImportantList";
+import MyList from "./components/MyList";
+>>>>>>> ab4d0b29509b2104f9cb6dd6a878cfa145e11fb0
 
 /* function ImportantList() {
   let animals: string[] = ["Lion", "Puma", "Horse", "Snake", "Elephant"];
@@ -42,6 +54,7 @@ function App() {
     </>
   );
 } */
+<<<<<<< HEAD
 /* function App() { */
 /*   const [animal, setAnimal] = useState({
     name: "Maunz",
@@ -49,6 +62,15 @@ function App() {
     age: 2,
   });
  */
+=======
+/* function App() {
+  const [animal, setAnimal] = useState({
+    name: "Maunz",
+    species: "cat",
+    age: 2,
+  }); */
+
+>>>>>>> ab4d0b29509b2104f9cb6dd6a878cfa145e11fb0
 /*   const handleIncreaseAge = () => {
     //NEVER mutate a state like this!!! BAD practice
     animal.age = animal.age + 1; //BAD
@@ -69,7 +91,7 @@ function App() {
       <button onClick={handleIncreaseAge}>Increase Age</button>
     </>
   );
-}
+} */
 
 /* function App() {
   const colors = ["red", "green", "yellow"];
@@ -87,6 +109,7 @@ function App() {
     </div>
   );
 }
+<<<<<<< HEAD
  */
 function App() {
   return (
@@ -96,4 +119,60 @@ function App() {
   );
 }
 
+=======
+*/
+
+/* function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  return (
+    <>
+      <label>
+        <input
+          type="checkbox"
+          checked={isDark}
+          onChange={(e) => setIsDark(e.target.checked)}
+        />
+        Darkmode
+      </label>
+      <div>
+        <MyList
+          todos={["hello", "world", "hi"]}
+          theme={isDark ? "dark" : "light"}
+        />
+      </div>
+    </>
+  );
+} */
+
+/* function useTitle() {
+  const [title, setTitle] = useState<string>("");
+  useDebugValue(`title is ${title}`);
+  useEffect(() => {
+    setTimeout(() => {
+      setTitle("testing useDebugvalue");
+    }, 2000);
+  }, [title]);
+  return title;
+}
+
+function App() {
+  const title = useTitle();
+  return (
+    <>
+      <h1>{title}</h1>
+    </>
+  );
+} */
+
+function App() {
+  const id = useId();
+  return (
+    <label htmlFor={id}>
+      Name:
+      <input id={id} type="text" />
+    </label>
+  );
+}
+>>>>>>> ab4d0b29509b2104f9cb6dd6a878cfa145e11fb0
 export default App;
